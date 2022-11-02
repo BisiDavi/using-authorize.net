@@ -1,13 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Cards from "react-credit-cards-2";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 import { formStateType } from "../../types";
 import "react-credit-cards-2/es/styles-compiled.css";
-import axios from "axios";
 import SpinnerRipple from "../SpinnerRipple";
-import Link from "next/link";
 
 const formArray = [
   { name: "number", text: "Card Number" },
@@ -116,7 +115,7 @@ export default function CardForm({ userDetails }: Props) {
           </p>
         </>
       ) : formStatus === "loading" ? (
-        <SpinnerRipple />
+        <SpinnerRipple centerRipple />
       ) : formStatus === "success" ? (
         <>
           <img src="/checkmark.gif" alt="successful" />

@@ -169,3 +169,16 @@ button.go-back {
   margin: 5px;
   height: 32px;
 }
+
+/* utils */
+.flex {
+  display: flex;
+}
+
+.flex-direction {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}

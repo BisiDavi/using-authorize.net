@@ -33,7 +33,6 @@ export default function PaymentForm({ car }: Props) {
       title: `${car.name} purchased`,
     },
   });
-  console.log("formState.data", formState.data);
   return (
     <>
       {!formState.filled ? (

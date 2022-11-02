@@ -12,8 +12,6 @@ export default function Car() {
 
   const car = cars.filter((item) => name === toSlug(item?.name))[0];
 
-  const numberofOccurence = car ? car?.price / 2000 : 0;
-
   return (
     <Layout>
       {name && (
