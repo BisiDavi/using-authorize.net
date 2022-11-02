@@ -7,6 +7,7 @@ import axios from "axios";
 import { formStateType } from "../../types";
 import "react-credit-cards-2/es/styles-compiled.css";
 import SpinnerRipple from "../SpinnerRipple";
+import Link from "next/link";
 
 const formArray = [
   { name: "number", text: "Card Number" },
@@ -120,7 +121,9 @@ export default function CardForm({ userDetails }: Props) {
         <>
           <img src="/checkmark.gif" alt="successful" />
           <h4>Payment Successful </h4>
-          <button>View List of All Subscription</button>
+          <Link href="/subscription/all" passHref>
+            <button className="next">View List of All Subscription</button>
+          </Link>
         </>
       ) : (
         formStatus === "error" && (

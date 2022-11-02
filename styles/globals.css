@@ -106,12 +106,8 @@ ul {
 }
 
 /* button */
-.buttonSet {
-  margin-top: 10px;
-  width: 100%;
-}
 
-.buttonSet .next {
+.next {
   background-color: blue;
   padding: 5px 20px;
   border: none;
@@ -127,7 +123,7 @@ ul {
   margin-left: 5px;
 }
 
-.buttonSet .back {
+.back {
   background-color: red;
   padding: 5px 20px;
   border: none;
@@ -135,7 +131,7 @@ ul {
   margin-left: 5px;
 }
 
-.buttonSet .next:hover {
+.next:hover {
   opacity: 0.8;
 }
 
@@ -186,7 +182,5 @@ button.go-back {
 /* table */
 td {
   text-align: center;
-}
-td {
   border: 1px solid black;
 }
