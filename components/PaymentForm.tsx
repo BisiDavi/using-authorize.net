@@ -1,10 +1,13 @@
 import Link from "next/link";
+import { useState } from "react";
 
 import paymentForm from "../json/payment-form.json";
 import Input from "./Input";
 import SelectCountry from "./SelectCountry";
 
 export default function PaymentForm() {
+  const [formStage, setFormStage] = useState(0);
+
   return (
     <form>
       <h4>Make Payment</h4>
@@ -12,7 +15,7 @@ export default function PaymentForm() {
         <button>Back</button>
       </Link>
       <div className="form-view my-4">
-        {paymentForm[0].map((item, index) => (
+        {paymentForm[formStage].map((item, index) => (
           <div className="row" key={index}>
             {item.map((formElement, idx) => {
               const inputClassName = item.length === 2 ? "short" : "long";
@@ -28,6 +31,26 @@ export default function PaymentForm() {
             })}
           </div>
         ))}
+        <div className="buttonSet">
+          {formStage > 0 && (
+            <button
+              className="back"
+              type="button"
+              onClick={() => setFormStage(formStage - 1)}
+            >
+              previous
+            </button>
+          )}
+          {formStage < 2 && (
+            <button
+              className="next"
+              type="button"
+              onClick={() => setFormStage(formStage + 1)}
+            >
+              Next
+            </button>
+          )}
+        </div>
       </div>
     </form>
   );

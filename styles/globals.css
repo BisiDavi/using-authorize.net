@@ -84,6 +84,31 @@ ul {
   justify-content: space-between;
 }
 
+.buttonSet {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.buttonSet .next {
+  background-color: green;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.buttonSet .back {
+  background-color: red;
+  padding: 5px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.buttonSet .next:hover {
+  opacity: 0.8;
+}
+
 /* media queries */
 
 @media (prefers-color-scheme: dark) {
