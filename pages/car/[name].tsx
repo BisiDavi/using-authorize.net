@@ -19,7 +19,7 @@ export default function Car() {
       {name && (
         <section>
           <CarDetailsView car={car} />
-          <PaymentForm numberofOccurence={numberofOccurence} />
+          <PaymentForm car={car} />
         </section>
       )}
       <style jsx>

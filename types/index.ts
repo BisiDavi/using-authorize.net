@@ -8,4 +8,6 @@ export type formStateType = {
   zip: string;
   country: string;
   paymentStartDate: string;
+  numberofOccurence: number;
+  carName?: string;
 };

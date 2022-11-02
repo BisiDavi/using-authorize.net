@@ -4,11 +4,17 @@ import CardForm from "./CardForm";
 import CustomerDetailsForm from "./CustomerDetailsForm";
 
 interface Props {
-  numberofOccurence: number;
+  car: {
+    name: string;
+    image: string;
+    price: number;
+  };
 }
 
-export default function PaymentForm({ numberofOccurence }: Props) {
+export default function PaymentForm({ car }: Props) {
   const currentDateInstance = new Date().toISOString().substring(0, 10);
+  const numberofOccurence = car ? car?.price / 2000 : 0;
+
   const [formState, setFormState] = useState({
     filled: false,
     data: {
@@ -21,6 +27,10 @@ export default function PaymentForm({ numberofOccurence }: Props) {
       zip: "",
       country: "",
       paymentStartDate: currentDateInstance,
+      numberofOccurence,
+      amount: car.price,
+      carName: car.name,
+      title: `Payment for the Car - ${car.name}`,
     },
   });
 
@@ -30,7 +40,6 @@ export default function PaymentForm({ numberofOccurence }: Props) {
         <CustomerDetailsForm
           formState={formState}
           setFormState={setFormState}
-          numberofOccurence={numberofOccurence}
         />
       ) : (
         <CardForm userDetails={formState.data} />

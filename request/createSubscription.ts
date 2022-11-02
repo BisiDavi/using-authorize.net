@@ -1,20 +1,12 @@
 const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
 import { v4 as uuidv4 } from "uuid";
+import { formStateType } from "../types";
 
-type createSubscriptionDataType = {
-  paymentStartDate: string;
+type createSubscriptionDataType = formStateType & {
   expiry: string;
   cardNumber: string;
   description: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  address: string;
-  city: string;
-  zip: string;
-  country: string;
-  state: string;
   title: string;
   amount: string;
 };
@@ -41,7 +33,7 @@ export default function createSubscription(
   const paymentScheduleType = new ApiContracts.PaymentScheduleType();
   paymentScheduleType.setInterval(interval);
   paymentScheduleType.setStartDate(data.paymentStartDate);
-  paymentScheduleType.setTotalOccurrences(5);
+  paymentScheduleType.setTotalOccurrences(data.numberofOccurence);
   paymentScheduleType.setTrialOccurrences(0);
 
   const creditCard = new ApiContracts.CreditCardType();

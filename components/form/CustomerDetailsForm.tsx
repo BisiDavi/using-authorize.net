@@ -9,12 +9,7 @@ import { paymentSchema } from "./paymentSchema";
 import Select from "./Select";
 import formatPrice from "../../utils/formatPrice";
 
-export default function CustomerDetailsForm({
-  formState,
-  setFormState,
-  numberofOccurence,
-}: any) {
-  const currentDateInstance = new Date().toISOString().substring(0, 10);
+export default function CustomerDetailsForm({ formState, setFormState }: any) {
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
     defaultValues: formState.data,
@@ -24,11 +19,14 @@ export default function CustomerDetailsForm({
   function onSubmit(data: any) {
     setFormState({
       filled: true,
-      data,
+      data: {
+        ...data,
+        ...formState.data,
+      },
     });
   }
 
-  const price = 2000 * numberofOccurence;
+  const price = 2000 * formState.data.numberofOccurence;
 
   return (
     <FormProvider {...methods}>
@@ -36,8 +34,8 @@ export default function CustomerDetailsForm({
         <div className="note bg-skyblue">
           <h5>You&#39;re to pay $2,000.00 monthly</h5>
           <h5>
-            You will be paying for {numberofOccurence} months for the money to
-            be ${formatPrice(price)}
+            You will be paying for {formState.data.numberofOccurence} months for
+            the money to be ${formatPrice(price)}
           </h5>
         </div>
         <Link href="/" passHref>
