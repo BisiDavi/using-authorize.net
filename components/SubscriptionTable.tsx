@@ -1,6 +1,11 @@
+import { subscriptionType } from "../types";
 import formatPrice from "../utils/formatPrice";
 
-export default function SubscriptionTable({ subscriptions }) {
+interface Props {
+  subscriptions: Array<subscriptionType>;
+}
+
+export default function SubscriptionTable({ subscriptions }: Props) {
   return (
     <table>
       <thead>
@@ -17,7 +22,7 @@ export default function SubscriptionTable({ subscriptions }) {
         </tr>
       </thead>
       <tbody>
-        {subscriptions.map((subscription, index: number) => {
+        {subscriptions.map((subscription: subscriptionType, index: number) => {
           const idx = index + 1;
           const date = new Date(subscription.createTimeStampUTC).toDateString();
           return (

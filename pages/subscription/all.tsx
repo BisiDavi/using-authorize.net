@@ -47,7 +47,9 @@ export default function SubscriptionPage() {
           status === "success" && (
             <>
               <h4>Fetching subscription successful</h4>
-              <SubscriptionTable subscriptions={subscriptions} />
+              {subscriptions !== null && (
+                <SubscriptionTable subscriptions={subscriptions} />
+              )}
             </>
           )
         )}

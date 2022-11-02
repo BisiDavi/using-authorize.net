@@ -11,3 +11,19 @@ export type formStateType = {
   numberofOccurence: number;
   carName?: string;
 };
+
+export type subscriptionType = {
+  createTimeStampUTC: string;
+  id: string;
+  name: string;
+  firstName: string;
+  lastName: string;
+  totalOccurrences: string;
+  pastOccurrences: string;
+  paymentMethod: string;
+  amount: number;
+  customerProfileId: string;
+  customerPaymentProfileId: string;
+  customerShippingProfileId: string;
+  status: string;
+};
