@@ -2,7 +2,7 @@ const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
 import { v4 as uuidv4 } from "uuid";
 
-export default function createSubscription(callback: (response:any) => void) {
+export default function createSubscription(callback: (response: any) => void) {
   const merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
   merchantAuthenticationType.setName(
@@ -11,6 +11,8 @@ export default function createSubscription(callback: (response:any) => void) {
   merchantAuthenticationType.setTransactionKey(
     process.env.NEXT_PUBLIC_AUTHORIZE_TRANSACTION_KEY
   );
+
+  const userId = uuidv4();
 
   const interval = new ApiContracts.PaymentScheduleType.Interval();
   interval.setLength(1);
@@ -30,12 +32,12 @@ export default function createSubscription(callback: (response:any) => void) {
   payment.setCreditCard(creditCard);
 
   const orderType = new ApiContracts.OrderType();
-  orderType.setInvoiceNumber(`Inv:${uuidv4()}`));
-  orderType.setDescription(utils.getRandomString("Description"));
+  orderType.setInvoiceNumber(`Inv:${uuidv4()}`);
+  orderType.setDescription("Description");
 
   const customer = new ApiContracts.CustomerType();
   customer.setType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
-  customer.setId(utils.getRandomString("Id"));
+  customer.setId(userId);
   customer.setEmail(utils.getRandomInt() + "@test.anet.net");
   customer.setPhoneNumber("1232122122");
   customer.setFaxNumber("1232122122");
@@ -52,10 +54,10 @@ export default function createSubscription(callback: (response:any) => void) {
   nameAndAddressType.setCountry("USA");
 
   const arbSubscription = new ApiContracts.ARBSubscriptionType();
-  arbSubscription.setName(utils.getRandomString("Name"));
+  arbSubscription.setName("Name");
   arbSubscription.setPaymentSchedule(paymentScheduleType);
-  arbSubscription.setAmount(utils.getRandomAmount());
-  arbSubscription.setTrialAmount(utils.getRandomAmount());
+  arbSubscription.setAmount("Amount");
+  arbSubscription.setTrialAmount("0.00");
   arbSubscription.setPayment(payment);
   arbSubscription.setOrder(orderType);
   arbSubscription.setCustomer(customer);
