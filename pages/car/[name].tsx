@@ -3,9 +3,8 @@ import { useRouter } from "next/router";
 import Layout from "../../layout";
 import cars from "../../json/cars.json";
 import toSlug from "../../utils/toSlug";
-import Image from "next/image";
-import Link from "next/link";
 import CarDetailsView from "../../components/CarDetailsView";
+import PaymentForm from "../../components/PaymentForm";
 
 export default function Car() {
   const router = useRouter();
@@ -19,12 +18,7 @@ export default function Car() {
     <Layout>
       <section>
         <CarDetailsView car={car} />
-        <form>
-          <h4>Make Payment</h4>
-          <Link href="/" passHref>
-            <button>Back</button>
-          </Link>
-        </form>
+        <PaymentForm />
       </section>
       <style jsx>
         {`
