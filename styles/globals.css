@@ -45,7 +45,18 @@ ul {
 }
 
 .bg-skyblue {
-  background-color: skyblue;
+  background-color: rgb(16, 123, 165);
+}
+
+.note {
+  padding: 5px 8px;
+  margin: 20px 0;
+  border-radius: 10px;
+  color: white;
+}
+
+.note h5 {
+  margin: 5px;
 }
 
 .xl {

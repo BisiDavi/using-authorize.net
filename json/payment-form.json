@@ -1,85 +1,66 @@
 [
   [
-    [
-      {
-        "name": "firstName",
-        "label": "Your First Name",
-        "placeholder": "Please enter your first name",
-        "type": "text"
-      },
-      {
-        "name": "lastName",
-        "label": "Last Name",
-        "placeholder": "Please enter your last name",
-        "type": "text"
-      }
-    ],
-    [
-      {
-        "name": "address",
-        "label": "Address",
-        "placeholder": "Please enter your Address",
-        "type": "text"
-      }
-    ],
-    [
-      {
-        "name": "city",
-        "label": "City",
-        "placeholder": "Please enter your city",
-        "type": "text"
-      },
-      {
-        "name": "state",
-        "label": "State",
-        "placeholder": "Please enter your last name",
-        "type": "text"
-      }
-    ],
-    [
-      {
-        "name": "zip",
-        "label": "Zip",
-        "placeholder": "Please enter your zip",
-        "type": "text"
-      },
-      {
-        "name": "country",
-        "label": "Country",
-        "placeholder": "Please select your country",
-        "type": "country"
-      }
-    ]
+    {
+      "name": "firstName",
+      "label": "Your First Name",
+      "placeholder": "Please enter your first name",
+      "type": "text"
+    },
+    {
+      "name": "lastName",
+      "label": "Last Name",
+      "placeholder": "Please enter your last name",
+      "type": "text"
+    }
   ],
   [
-    [
-      {
-        "name": "paymentStartDate",
-        "label": "Payment Start Date",
-        "placeholder": "yyyy-mm-dd",
-        "type": "text"
-      },
-      {
-        "name": "totalOccurrence",
-        "label": "Total Payment Occurrence",
-        "placeholder": "how many times do you want to make this payment",
-        "type": "number",
-        "disabled": true
-      }
-    ],
-    [
-      {
-        "name": "email",
-        "label": "Your email",
-        "placeholder": "Email Address, please enter a valid email",
-        "type": "email"
-      },
-      {
-        "name": "phone",
-        "label": "Your Phone number",
-        "placeholder": "Phone number",
-        "type": "text"
-      }
-    ]
+    {
+      "name": "address",
+      "label": "Address",
+      "placeholder": "Please enter your Address",
+      "type": "text"
+    }
+  ],
+  [
+    {
+      "name": "city",
+      "label": "City",
+      "placeholder": "Please enter your city",
+      "type": "text"
+    },
+    {
+      "name": "state",
+      "label": "State",
+      "placeholder": "Please enter your last name",
+      "type": "text"
+    }
+  ],
+  [
+    {
+      "name": "zip",
+      "label": "Zip",
+      "placeholder": "Please enter your zip",
+      "type": "text"
+    },
+    {
+      "name": "country",
+      "label": "Country",
+      "placeholder": "Please select your country",
+      "type": "country"
+    }
+  ],
+  [
+    {
+      "name": "paymentStartDate",
+      "label": "Payment Start Date",
+      "placeholder": "yyyy-mm-dd",
+      "type": "text"
+    },
+    {
+      "name": "email",
+      "label": "Your email",
+      "placeholder": "Email Address, please enter a valid email",
+      "type": "email"
+    }
   ]
 ]

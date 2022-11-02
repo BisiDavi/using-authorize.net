@@ -23,7 +23,7 @@ export default function Input({ input, className }: Props) {
         placeholder={input.placeholder}
         {...register(input.name)}
       />
-      <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
+      <p>{errors[input.name]?.message}</p>
     </div>
   );
 }
