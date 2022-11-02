@@ -180,7 +180,20 @@ button.go-back {
 }
 
 /* table */
+th,
+table,
 td {
   text-align: center;
   border: 1px solid black;
+}
+th {
+  height: 40px;
+}
+
+.mx-auto {
+  margin: auto;
+}
+
+.px-4 {
+  padding: 5px 10px;
 }

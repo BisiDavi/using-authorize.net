@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function SiteInfo() {
   return (
     <>
@@ -16,6 +18,11 @@ export default function SiteInfo() {
         Make payment with{" "}
         <span className="bold">authorize.net test credit card</span>
       </p>
+      <Link href="/subscription/all" passHref>
+        <button className="next flex items-center justify-center mx-auto px-4">
+          View List of All Subscription
+        </button>
+      </Link>
     </>
   );
 }
