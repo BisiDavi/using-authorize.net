@@ -182,3 +182,11 @@ button.go-back {
 .justify-center {
   justify-content: center;
 }
+
+/* table */
+td {
+  text-align: center;
+}
+td {
+  border: 1px solid black;
+}

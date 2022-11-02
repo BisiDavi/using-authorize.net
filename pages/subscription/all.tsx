@@ -1,17 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from "react";
 import SpinnerRipple from "../../components/SpinnerRipple";
+import SubscriptionTable from "../../components/SubscriptionTable";
 
 import Layout from "../../layout";
 import getAllSubscription from "../../request/getAllSubscription";
 
 export default function SubscriptionPage() {
-  const [subscription, setSubscription] = useState(null);
+  const [subscriptions, setSubscriptions] = useState(null);
   const [status, setStatus] = useState<null | "loading" | "success" | "error">(
     null
   );
 
-  console.log("subscription", subscription);
+  console.log("subscription", subscriptions);
 
   useEffect(() => {
     setStatus("loading");
@@ -20,7 +21,7 @@ export default function SubscriptionPage() {
         console.log(response.data);
         if (response.data.messages.resultCode !== "Error") {
           setStatus("success");
-          setSubscription(
+          setSubscriptions(
             response.data?.subscriptionDetails.subscriptionDetail
           );
         } else if (response.data.messages.resultCode === "Error") {
@@ -46,25 +47,7 @@ export default function SubscriptionPage() {
           status === "success" && (
             <>
               <h4>Fetching subscription successful</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th>S/N</th>
-                    <th>Name</th>
-                    <th>User</th>
-                    <th>Total Occurences</th>
-                    <th>Paid Occurence(s)</th>
-                    <th>Payment Method</th>
-                    <th>Amount</th>
-                    <th>Customer</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                </tbody>
-              </table>
+              <SubscriptionTable subscriptions={subscriptions} />
             </>
           )
         )}
