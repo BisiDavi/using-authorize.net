@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Toyota Camry 2012",
+    "image": "/toyota-camry-se.jpeg",
+    "price": 10000
+  },
+  { "name": "Toyota Venza 2012", "image": "/venza.jpeg", "price": 15000 },
+  { "name": "Mercedes Benz E-350", "image": "/e350-mb.webp", "price": 20000 },
+  {
+    "name": "Mercedes Benz C-350 - 4Matic Coupe",
+    "image": "/c350-mb.jpeg",
+    "price": 20000
+  }
+]

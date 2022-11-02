@@ -15,12 +15,24 @@ a {
   box-sizing: border-box;
 }
 
+.center {
+  text-align: center;
+}
+
+.xxl {
+  font-size: 40px;
+}
+
+.lg {
+  font-size: 20px;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    color: black;
+    background: white;
   }
 }
