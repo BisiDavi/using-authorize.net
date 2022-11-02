@@ -86,6 +86,13 @@ export default function CarView() {
         .car-list button:hover {
           opacity: 0.8;
         }
+
+        @media (max-width: 768px) {
+          .cars-grid {
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 10px;
+          }
+        }
       `}</style>
     </>
   );

@@ -5,21 +5,13 @@ import cars from "../json/cars.json";
 import { formatPrice } from "../utils/formatPrice";
 import type { NextPage } from "next";
 import CarView from "../components/CarView";
+import Layout from "../layout";
 
 const Home: NextPage = () => {
   return (
     <>
-      <main>
-        <Head>
-          <title>
-            Buy-Cars | Buy and make recurring payment until the whole payment is
-            made
-          </title>
-        </Head>
+      <Layout>
         <section>
-          <header className="black">
-            <h1 className="xxl center">Welcome to Recurring Cars</h1>
-          </header>
           <ul className="red">
             How it works: We know that buying of cars can be quite expensive,
             <li>
@@ -40,20 +32,13 @@ const Home: NextPage = () => {
           </p>
           <CarView />
         </section>
-      </main>
-      <style jsx>{`
-        main {
-          background-color: white;
-          color: black;
-        }
-        section {
-          margin: 0px 30px;
-        }
-        ul {
-          padding: 0px;
-          list-style: none;
-        }
-      `}</style>
+        <style jsx>{`
+          ul {
+            padding: 0px;
+            list-style: none;
+          }
+        `}</style>
+      </Layout>
     </>
   );
 };

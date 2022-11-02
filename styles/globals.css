@@ -15,6 +15,11 @@ a {
   box-sizing: border-box;
 }
 
+ul {
+  padding: 0px;
+  list-style: none;
+}
+
 .center {
   text-align: center;
 }
