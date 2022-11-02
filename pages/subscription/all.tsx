@@ -12,8 +12,6 @@ export default function SubscriptionPage() {
     null
   );
 
-  console.log("subscription", subscriptions);
-
   useEffect(() => {
     setStatus("loading");
     getAllSubscription()

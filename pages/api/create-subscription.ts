@@ -4,7 +4,6 @@ import createSubscription from "../../request/createSubscription";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { data } = req.body;
-  console.log("data", data);
   switch (req.method) {
     case "POST": {
       try {
