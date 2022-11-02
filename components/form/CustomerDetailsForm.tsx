@@ -20,8 +20,8 @@ export default function CustomerDetailsForm({ formState, setFormState }: any) {
     setFormState({
       filled: true,
       data: {
-        ...data,
         ...formState.data,
+        ...data,
       },
     });
   }

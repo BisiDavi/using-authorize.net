@@ -4,10 +4,11 @@ import createSubscription from "../../request/createSubscription";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const { data } = req.body;
+  console.log("data", data);
   switch (req.method) {
     case "POST": {
       try {
-        createSubscription(data ,res);
+        createSubscription(data, res);
       } catch (error) {
         res.status(400).json({ status: `error occurred, ${error}` });
       }

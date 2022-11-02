@@ -147,6 +147,12 @@ button.go-back {
   color: red;
 }
 
+.home {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
 /* cardform */
 #PaymentForm {
   margin-top: 10%;

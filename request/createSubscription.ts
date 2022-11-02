@@ -1,6 +1,5 @@
 const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
-import { v4 as uuidv4 } from "uuid";
 import { formStateType } from "../types";
 
 type createSubscriptionDataType = formStateType & {
@@ -15,6 +14,8 @@ export default function createSubscription(
   data: createSubscriptionDataType,
   res: any
 ) {
+  const date = new Date().toJSON();
+  const currentTime = Date.parse(date);
   const merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
   merchantAuthenticationType.setName(
@@ -23,8 +24,6 @@ export default function createSubscription(
   merchantAuthenticationType.setTransactionKey(
     process.env.NEXT_PUBLIC_AUTHORIZE_TRANSACTION_KEY
   );
-
-  const userId = uuidv4();
 
   const interval = new ApiContracts.PaymentScheduleType.Interval();
   interval.setLength(1);
@@ -44,12 +43,12 @@ export default function createSubscription(
   payment.setCreditCard(creditCard);
 
   const orderType = new ApiContracts.OrderType();
-  orderType.setInvoiceNumber(`Inv:${uuidv4()}`);
+  orderType.setInvoiceNumber(`Inv-${currentTime}`);
   orderType.setDescription(data.description);
 
   const customer = new ApiContracts.CustomerType();
   customer.setType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
-  customer.setId(userId);
+  // customer.setId(data.email);
   customer.setEmail(data.email);
   // customer.setPhoneNumber();
   // customer.setFaxNumber("1232122122");

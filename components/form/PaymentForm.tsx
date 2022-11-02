@@ -30,10 +30,10 @@ export default function PaymentForm({ car }: Props) {
       numberofOccurence,
       amount: car.price,
       carName: car.name,
-      title: `Payment for the Car - ${car.name}`,
+      title: `${car.name} purchased`,
     },
   });
-
+  console.log("formState.data", formState.data);
   return (
     <>
       {!formState.filled ? (

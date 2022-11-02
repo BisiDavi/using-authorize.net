@@ -1,15 +1,17 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @next/next/no-img-element */
 import Cards from "react-credit-cards-2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { formStateType } from "../../types";
 import "react-credit-cards-2/es/styles-compiled.css";
 import axios from "axios";
 import SpinnerRipple from "../SpinnerRipple";
+import Link from "next/link";
 
 const formArray = [
   { name: "number", text: "Card Number" },
-  { name: "expiry", text: "Expiry" },
+  { name: "expiry", text: "Expiry (MM/YY)" },
   { name: "cvc", text: "CVC" },
 ];
 
@@ -27,7 +29,7 @@ export default function CardForm({ userDetails }: Props) {
     expiry: "",
     focus: "",
     name,
-    cardNumber: "",
+    number: "",
   });
 
   function handleInputFocus(e: any) {
@@ -44,15 +46,26 @@ export default function CardForm({ userDetails }: Props) {
     const data = {
       ...userDetails,
       ...formState,
+      cardNumber: formState.number,
       description: `This car was ${userDetails.carName} purchased by ${name} `,
     };
-
-    console.log("data", data);
     setFormStatus("loading");
-    await axios
-      .post("/api/create-subscription", { data })
+    return await axios
+      .post(
+        "/api/create-subscription",
+        { data },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
-        setFormStatus("success");
+        if (response.data.messages.resultCode !== "Error") {
+          setFormStatus("success");
+        } else if (response.data.messages.resultCode === "Error") {
+          setFormStatus("error");
+        }
         console.log("response-from-create-subscription-api", response);
       })
       .catch((error) => {
@@ -63,14 +76,14 @@ export default function CardForm({ userDetails }: Props) {
 
   return (
     <div id="PaymentForm">
-      {null ? (
+      {formStatus === null ? (
         <>
           <Cards
             cvc={formState.cvc}
             expiry={formState.expiry}
             focused={formState.focus}
             name={formState.name}
-            number={formState.cardNumber}
+            number={formState.number}
           />
           <form onSubmit={onSubmit}>
             <div className="input-group">
@@ -82,20 +95,22 @@ export default function CardForm({ userDetails }: Props) {
                   placeholder={input.text}
                   onChange={handleInputChange}
                   onFocus={handleInputFocus}
+                  required
                 />
               ))}
             </div>
-            <button className="submit" type="submit">
-              Submit
-            </button>
+            <button className="submit">Submit</button>
           </form>
-          <p className="red bold">
-            To get card number visit this link
+          <p>use any future date as expiry date</p>
+          <p className="bold">
+            To get card number
             <a
+              className="red"
               target="_blank"
               rel="noreferrer"
               href="https://developer.authorize.net/hello_world/testing_guide.html"
             >
+              {" "}
               Check here
             </a>
           </p>
@@ -105,7 +120,10 @@ export default function CardForm({ userDetails }: Props) {
       ) : formStatus === "success" ? (
         <>
           <img src="/checkmark.gif" alt="successful" />
-          <h4>Payment Successful</h4>
+          <h4>Payment Successful, you will receive an email notification </h4>
+          <Link href="/">
+            <button className="home">Home</button>
+          </Link>
         </>
       ) : (
         formStatus === "error" && (
