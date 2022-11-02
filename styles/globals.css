@@ -108,15 +108,3 @@ ul {
 .buttonSet .next:hover {
   opacity: 0.8;
 }
-
-/* media queries */
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: black;
-    background: white;
-  }
-}
