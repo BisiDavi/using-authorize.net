@@ -32,12 +32,6 @@ const Home: NextPage = () => {
           </p>
           <CarView />
         </section>
-        <style jsx>{`
-          ul {
-            padding: 0px;
-            list-style: none;
-          }
-        `}</style>
       </Layout>
     </>
   );

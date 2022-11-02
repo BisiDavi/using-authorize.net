@@ -1,4 +1,4 @@
-export function formatPrice(price: number) {
+export default function formatPrice(price: number) {
   const productPrice = price?.toFixed(2);
   return numberWithCommas(productPrice);
 }

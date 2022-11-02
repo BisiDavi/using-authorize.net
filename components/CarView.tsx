@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import cars from "../json/cars.json";
-import { formatPrice } from "../utils/formatPrice";
+import formatPrice from "../utils/formatPrice";
+import toSlug from "../utils/toSlug";
 
 export default function CarView() {
   return (
@@ -10,7 +11,7 @@ export default function CarView() {
       <ul className="cars-grid">
         {cars.map((item, index) => (
           <li key={index} className="car-list">
-            <Link href={`/car/${item.name}`} passHref>
+            <Link href={`/car/${toSlug(item.name)}`} passHref>
               <a>
                 <div className="overlay">
                   <button>Buy</button>
@@ -22,8 +23,10 @@ export default function CarView() {
                   width={700}
                   layout="responsive"
                 />
-                <h4 className="xl my-4">{item.name}</h4>
-                <button>${formatPrice(item.price)}</button>
+                <div className="details">
+                  <h4 className="xl my-4">{item.name}</h4>
+                  <button>${formatPrice(item.price)}</button>
+                </div>
               </a>
             </Link>
           </li>
@@ -85,6 +88,12 @@ export default function CarView() {
         }
         .car-list button:hover {
           opacity: 0.8;
+        }
+
+        .details {
+          background-color: #f4ebeb;
+          margin-top: -10px;
+          padding: 10px;
         }
 
         @media (max-width: 768px) {
