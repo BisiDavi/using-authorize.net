@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { PropsWithChildren } from "react";
 
 export default function Layout({ children }: PropsWithChildren<{}>) {
@@ -11,7 +12,11 @@ export default function Layout({ children }: PropsWithChildren<{}>) {
         </title>
       </Head>
       <header>
-        <h1 className="xxl center">Welcome to Recurring Cars</h1>
+        <Link href="/">
+          <a>
+            <h1 className="xxl center">Welcome to Recurring Cars</h1>
+          </a>
+        </Link>
       </header>
       <main>{children}</main>
       <footer>© Olubisi David, 2022</footer>

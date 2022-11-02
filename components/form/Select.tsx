@@ -1,3 +1,4 @@
+import { useFormContext } from "react-hook-form";
 interface Props {
   input: {
     name: string;
@@ -9,6 +10,10 @@ interface Props {
 }
 
 export default function Select({ input, className }: Props) {
+  const {
+    register,
+    formState: { errors },
+  }: any = useFormContext();
   return (
     <div className="select-view">
       <label htmlFor={input.name}>{input.label}</label>
@@ -16,6 +21,7 @@ export default function Select({ input, className }: Props) {
         name={input.name}
         className={className}
         placeholder={input.placeholder}
+        {...register(input.name)}
       >
         {input.options.map((option) => (
           <option key={option.value} value={option.value}>
@@ -23,6 +29,7 @@ export default function Select({ input, className }: Props) {
           </option>
         ))}
       </select>
+      <p className="text-red-500 p-0  text-xs">{errors[input.name]?.message}</p>
     </div>
   );
 }
