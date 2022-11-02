@@ -10,14 +10,14 @@ export default function Car() {
   const router = useRouter();
   const { name } = router.query;
 
-  const car = cars.filter((item) => name === toSlug(item.name))[0];
+  const car = cars.filter((item) => name === toSlug(item?.name))[0];
 
   console.log("car", car);
 
   return (
     <Layout>
       <section>
-        <CarDetailsView car={car} />
+        {name && <CarDetailsView car={car} />}
         <PaymentForm />
       </section>
       <style jsx>
