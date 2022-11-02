@@ -44,6 +44,10 @@ ul {
   color: red;
 }
 
+.bg-skyblue {
+  background-color: skyblue;
+}
+
 .xl {
   font-size: larger;
 }
@@ -64,7 +68,7 @@ ul {
 .select-view p {
   color: red;
   font-size: 12px;
-  margin:0px;
+  margin: 0px;
 }
 
 .input-view input {

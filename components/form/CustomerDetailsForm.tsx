@@ -26,7 +26,10 @@ export default function CustomerDetailsForm({
   return (
     <FormProvider {...methods}>
       <form onSubmit={methods.handleSubmit(onSubmit)}>
-        <h4>Make Payment</h4>
+        <div className="note bg-skyblue">
+          <h4>You&#39;re to pay $2,000 monthly</h4>
+          <h4>You will be paying for {numberofOccurence} months </h4>
+        </div>
         <Link href="/" passHref>
           <button className="go-back bold">Back</button>
         </Link>
