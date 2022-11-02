@@ -8,7 +8,11 @@ import SelectCountry from "./SelectCountry";
 import { paymentSchema } from "./paymentSchema";
 import Select from "./Select";
 
-export default function CustomerDetailsForm({ formStage, setFormStage }: any) {
+export default function CustomerDetailsForm({
+  formStage,
+  setFormStage,
+  numberofOccurence,
+}: any) {
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
     mode: "all",

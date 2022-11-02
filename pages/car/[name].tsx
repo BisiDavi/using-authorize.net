@@ -12,13 +12,13 @@ export default function Car() {
 
   const car = cars.filter((item) => name === toSlug(item?.name))[0];
 
-  console.log("car", car);
+  const numberofOccurence = car.price / 2000;
 
   return (
     <Layout>
       <section>
         {name && <CarDetailsView car={car} />}
-        <PaymentForm />
+        <PaymentForm numberofOccurence={numberofOccurence} />
       </section>
       <style jsx>
         {`

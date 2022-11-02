@@ -5,12 +5,12 @@ export const paymentSchema = yup.object({
     .string()
     .email("Enter a vaild email address")
     .required("E-mail address is required"),
-  firstName: yup.string().min(6).required("Password is required"),
-  lastName: yup.string().min(6).required("Password is required"),
-  address: yup.string().min(6).required("Password is required"),
-  city: yup.string().min(6).required("Password is required"),
-  state: yup.string().min(6).required("Password is required"),
-  zip: yup.string().min(6).required("Password is required"),
-  country: yup.string().min(6).required("Password is required"),
-  paymentStartDate: yup.string().min(6).required("Password is required"),
+  firstName: yup.string().required("First name is required"),
+  lastName: yup.string().required("Last name is required"),
+  address: yup.string().required("Address is required"),
+  city: yup.string().required("City is required"),
+  state: yup.string().required("State is required"),
+  zip: yup.string().required("Zip is required"),
+  country: yup.string().required("Country is required"),
+  paymentStartDate: yup.string().required("Payment start date is required"),
 });

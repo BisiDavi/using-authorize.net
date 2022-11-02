@@ -3,7 +3,11 @@ import { useState } from "react";
 import CardForm from "./CardForm";
 import CustomerDetailsForm from "./CustomerDetailsForm";
 
-export default function PaymentForm() {
+interface Props {
+  numberofOccurence: number;
+}
+
+export default function PaymentForm({ numberofOccurence }: Props) {
   const [formStage, setFormStage] = useState(0);
 
   console.log("formStage", formStage);
@@ -14,6 +18,7 @@ export default function PaymentForm() {
         <CustomerDetailsForm
           formStage={formStage}
           setFormStage={setFormStage}
+          numberofOccurence={numberofOccurence}
         />
       ) : (
         formStage === 2 && <CardForm />

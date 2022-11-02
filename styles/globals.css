@@ -52,12 +52,19 @@ ul {
   font-size: 20px;
 }
 
-/* form */
+/* CustomerDetailsForm */
 .input-view,
 .select-view {
   display: flex;
   flex-direction: column;
   width: 100%;
+}
+
+.input-view p,
+.select-view p {
+  color: red;
+  font-size: 12px;
+  margin:0px;
 }
 
 .input-view input {
