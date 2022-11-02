@@ -8,20 +8,34 @@ interface Props {
 }
 
 export default function PaymentForm({ numberofOccurence }: Props) {
-  const [formStage, setFormStage] = useState(0);
+  const currentDateInstance = new Date().toISOString().substring(0, 10);
+  const [formState, setFormState] = useState({
+    filled: false,
+    data: {
+      email: "",
+      firstName: "",
+      lastName: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      paymentStartDate: currentDateInstance,
+    },
+  });
 
-  console.log("formStage", formStage);
+  console.log("formState", formState);
 
   return (
     <>
-      {formStage < 2 ? (
+      {!formState.filled ? (
         <CustomerDetailsForm
-          formStage={formStage}
-          setFormStage={setFormStage}
+          formState={formState}
+          setFormState={setFormState}
           numberofOccurence={numberofOccurence}
         />
       ) : (
-        formStage === 2 && <CardForm />
+        <CardForm />
       )}
     </>
   );

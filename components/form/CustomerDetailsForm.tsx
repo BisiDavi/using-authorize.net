@@ -9,26 +9,23 @@ import { paymentSchema } from "./paymentSchema";
 import Select from "./Select";
 import formatPrice from "../../utils/formatPrice";
 
-export default function CustomerDetailsForm({ numberofOccurence }: any) {
+export default function CustomerDetailsForm({
+  formState,
+  setFormState,
+  numberofOccurence,
+}: any) {
   const currentDateInstance = new Date().toISOString().substring(0, 10);
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
-    defaultValues: {
-      email: "",
-      firstName: "",
-      lastName: "",
-      address: "",
-      city: "",
-      state: "",
-      zip: "",
-      country: "",
-      paymentStartDate: currentDateInstance,
-    },
+    defaultValues: formState,
     mode: "all",
   });
 
   function onSubmit(data: any) {
-    console.log("data", data);
+    setFormState({
+      filled: true,
+      data,
+    });
   }
 
   const price = 2000 * numberofOccurence;
