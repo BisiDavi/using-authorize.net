@@ -24,22 +24,27 @@ export default function PaymentForm() {
           <button>Back</button>
         </Link>
         <div className="form-view my-4">
-          {paymentForm[formStage].map((item, index) => (
-            <div className="row" key={index}>
-              {item.map((formElement, idx) => {
-                const inputClassName = item.length === 2 ? "short" : "long";
-                return (
-                  <>
-                    {formElement.type === "country" ? (
-                      <SelectCountry />
-                    ) : formElement.type !== "select" ? (
-                      <Input input={formElement} className={inputClassName} />
-                    ) : null}
-                  </>
-                );
-              })}
-            </div>
-          ))}
+          {formStage < 2
+            ? paymentForm[formStage].map((item, index) => (
+                <div className="row" key={index}>
+                  {item.map((formElement, idx) => {
+                    const inputClassName = item.length === 2 ? "short" : "long";
+                    return (
+                      <>
+                        {formElement.type === "country" ? (
+                          <SelectCountry />
+                        ) : formElement.type !== "select" ? (
+                          <Input
+                            input={formElement}
+                            className={inputClassName}
+                          />
+                        ) : null}
+                      </>
+                    );
+                  })}
+                </div>
+              ))
+            : null}
           <div className="buttonSet">
             {formStage > 0 && (
               <button
