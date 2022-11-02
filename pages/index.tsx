@@ -1,8 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import cars from "../json/cars.json";
-import { formatPrice } from "../utils/formatPrice";
 import type { NextPage } from "next";
 import CarView from "../components/CarView";
 import Layout from "../layout";
