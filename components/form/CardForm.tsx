@@ -8,7 +8,11 @@ const formArray = [
   { name: "cvc", text: "CVC" },
 ];
 
-export default function CardForm() {
+interface Props {
+  name?: string;
+}
+
+export default function CardForm({ name }: Props) {
   const [formState, setFormState] = useState({
     cvc: "",
     expiry: "",
