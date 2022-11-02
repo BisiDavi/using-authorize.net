@@ -17,9 +17,11 @@ export default function CardForm({ name }: Props) {
     cvc: "",
     expiry: "",
     focus: "",
-    number: "",
     name,
+    number: "",
   });
+
+  console.log("formState", formState);
 
   function handleInputFocus(e: any) {
     setFormState({ ...formState, focus: e.target.name });
@@ -36,6 +38,7 @@ export default function CardForm({ name }: Props) {
         cvc={formState.cvc}
         expiry={formState.expiry}
         focused={formState.focus}
+        name={formState.name}
         number={formState.number}
       />
       <form>
@@ -51,7 +54,20 @@ export default function CardForm({ name }: Props) {
             />
           ))}
         </div>
+        <button className="submit" type="submit">
+          Submit
+        </button>
       </form>
+      <p className="red bold">
+        To get card number visit this link
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://developer.authorize.net/hello_world/testing_guide.html"
+        >
+          Check here
+        </a>
+      </p>
     </div>
   );
 }

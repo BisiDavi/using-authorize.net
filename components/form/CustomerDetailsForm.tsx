@@ -64,11 +64,9 @@ export default function CustomerDetailsForm({
               })}
             </div>
           ))}
-          <div className="buttonSet">
-            <button className="submit" type="submit">
-              Submit
-            </button>
-          </div>
+          <button className="submit" type="submit">
+            Submit
+          </button>
         </div>
       </form>
     </FormProvider>
