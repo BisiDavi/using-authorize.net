@@ -1,5 +1,6 @@
 const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
+import { v4 as uuidv4 } from "uuid";
 
 export default function createSubscription(callback: (response:any) => void) {
   const merchantAuthenticationType =
@@ -29,7 +30,7 @@ export default function createSubscription(callback: (response:any) => void) {
   payment.setCreditCard(creditCard);
 
   const orderType = new ApiContracts.OrderType();
-  orderType.setInvoiceNumber(utils.getRandomString("Inv:"));
+  orderType.setInvoiceNumber(`Inv:${uuidv4()}`));
   orderType.setDescription(utils.getRandomString("Description"));
 
   const customer = new ApiContracts.CustomerType();

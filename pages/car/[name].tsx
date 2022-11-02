@@ -5,6 +5,7 @@ import cars from "../../json/cars.json";
 import toSlug from "../../utils/toSlug";
 import Image from "next/image";
 import Link from "next/link";
+import CarDetailsView from "../../components/CarDetailsView";
 
 export default function Car() {
   const router = useRouter();
@@ -17,16 +18,7 @@ export default function Car() {
   return (
     <Layout>
       <section>
-        <div className="car-details">
-          <Image
-            alt={car.name}
-            src={car.image}
-            height={600}
-            width={1000}
-            layout="responsive"
-          />
-          <h4>{car.name}</h4>
-        </div>
+        <CarDetailsView car={car} />
         <form>
           <h4>Make Payment</h4>
           <Link href="/" passHref>
