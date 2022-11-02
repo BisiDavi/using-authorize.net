@@ -10,8 +10,20 @@ import Select from "./Select";
 import formatPrice from "../../utils/formatPrice";
 
 export default function CustomerDetailsForm({ numberofOccurence }: any) {
+  const currentDateInstance = new Date().toISOString().substring(0, 10);
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
+    defaultValues: {
+      email: "",
+      firstName: "",
+      lastName: "",
+      address: "",
+      city: "",
+      state: "",
+      zip: "",
+      country: "",
+      paymentStartDate: currentDateInstance,
+    },
     mode: "all",
   });
 

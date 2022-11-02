@@ -2,7 +2,24 @@ const ApiContracts = require("authorizenet").APIContracts;
 const ApiControllers = require("authorizenet").APIControllers;
 import { v4 as uuidv4 } from "uuid";
 
-export default function createSubscription(callback: (response: any) => void) {
+type createSubscriptionDataType = {
+  paymentStartDate: string;
+  expiry: string;
+  cardNumber: string;
+  description: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  zip: string;
+  country: string;
+  state: string;
+  title: string;
+  amount: string;
+};
+
+export default function createSubscription(data: createSubscriptionDataType) {
   const merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
   merchantAuthenticationType.setName(
@@ -20,43 +37,43 @@ export default function createSubscription(callback: (response: any) => void) {
 
   const paymentScheduleType = new ApiContracts.PaymentScheduleType();
   paymentScheduleType.setInterval(interval);
-  paymentScheduleType.setStartDate(utils.getDate());
+  paymentScheduleType.setStartDate(data.paymentStartDate);
   paymentScheduleType.setTotalOccurrences(5);
   paymentScheduleType.setTrialOccurrences(0);
 
   const creditCard = new ApiContracts.CreditCardType();
-  creditCard.setExpirationDate("2038-12");
-  creditCard.setCardNumber("4111111111111111");
+  creditCard.setExpirationDate(data.expiry);
+  creditCard.setCardNumber(data.cardNumber);
 
   const payment = new ApiContracts.PaymentType();
   payment.setCreditCard(creditCard);
 
   const orderType = new ApiContracts.OrderType();
   orderType.setInvoiceNumber(`Inv:${uuidv4()}`);
-  orderType.setDescription("Description");
+  orderType.setDescription(data.description);
 
   const customer = new ApiContracts.CustomerType();
   customer.setType(ApiContracts.CustomerTypeEnum.INDIVIDUAL);
   customer.setId(userId);
-  customer.setEmail(utils.getRandomInt() + "@test.anet.net");
-  customer.setPhoneNumber("1232122122");
-  customer.setFaxNumber("1232122122");
-  customer.setTaxId("911011011");
+  customer.setEmail(data.email);
+  // customer.setPhoneNumber();
+  // customer.setFaxNumber("1232122122");
+  // customer.setTaxId("911011011");
 
   const nameAndAddressType = new ApiContracts.NameAndAddressType();
-  nameAndAddressType.setFirstName(utils.getRandomString("FName"));
-  nameAndAddressType.setLastName(utils.getRandomString("LName"));
-  nameAndAddressType.setCompany(utils.getRandomString("Company"));
-  nameAndAddressType.setAddress(utils.getRandomString("Address"));
-  nameAndAddressType.setCity(utils.getRandomString("City"));
-  nameAndAddressType.setState(utils.getRandomString("State"));
-  nameAndAddressType.setZip("98004");
-  nameAndAddressType.setCountry("USA");
+  nameAndAddressType.setFirstName(data.firstName);
+  nameAndAddressType.setLastName(data.lastName);
+  // nameAndAddressType.setCompany(utils.getRandomString("Company"));
+  nameAndAddressType.setAddress(data.address);
+  nameAndAddressType.setCity(data.city);
+  nameAndAddressType.setState(data.state);
+  nameAndAddressType.setZip(data.zip);
+  nameAndAddressType.setCountry(data.country);
 
   const arbSubscription = new ApiContracts.ARBSubscriptionType();
-  arbSubscription.setName("Name");
+  arbSubscription.setName(data.title);
   arbSubscription.setPaymentSchedule(paymentScheduleType);
-  arbSubscription.setAmount("Amount");
+  arbSubscription.setAmount(data.amount);
   arbSubscription.setTrialAmount("0.00");
   arbSubscription.setPayment(payment);
   arbSubscription.setOrder(orderType);
@@ -113,7 +130,6 @@ export default function createSubscription(callback: (response: any) => void) {
     } else {
       console.log("Null Response.");
     }
-
-    callback(response);
+    console.log("response", response);
   });
 }
