@@ -4,7 +4,7 @@ import Layout from "../../layout";
 import cars from "../../json/cars.json";
 import toSlug from "../../utils/toSlug";
 import CarDetailsView from "../../components/CarDetailsView";
-import PaymentForm from "../../components/PaymentForm";
+import PaymentForm from "../../components/form/PaymentForm";
 
 export default function Car() {
   const router = useRouter();

@@ -108,3 +108,7 @@ ul {
 .buttonSet .next:hover {
   opacity: 0.8;
 }
+
+button {
+  color: white;
+}
