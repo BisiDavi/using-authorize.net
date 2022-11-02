@@ -120,10 +120,8 @@ export default function CardForm({ userDetails }: Props) {
       ) : formStatus === "success" ? (
         <>
           <img src="/checkmark.gif" alt="successful" />
-          <h4>Payment Successful, you will receive an email notification </h4>
-          <Link href="/">
-            <button className="home">Home</button>
-          </Link>
+          <h4>Payment Successful </h4>
+          <button>View List of All Subscription</button>
         </>
       ) : (
         formStatus === "error" && (

@@ -5,14 +5,12 @@ import Layout from "../layout";
 
 const Home: NextPage = () => {
   return (
-    <>
       <Layout>
         <section>
           <SiteInfo />
           <CarView />
         </section>
       </Layout>
-    </>
   );
 };
 
