@@ -23,6 +23,26 @@ a {
   font-size: 40px;
 }
 
+.my-4 {
+  margin: 10px 0px;
+}
+
+.em {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.red {
+  color: red;
+}
+
+.xl {
+  font-size: larger;
+}
+
 .lg {
   font-size: 20px;
 }
