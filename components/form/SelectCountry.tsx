@@ -1,4 +1,4 @@
-import countries from "../json/countries.json";
+import countries from "../../json/countries.json";
 
 export default function SelectCountry() {
   return (

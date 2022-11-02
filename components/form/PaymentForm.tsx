@@ -4,9 +4,9 @@ import { useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import paymentForm from "../../json/payment-form.json";
-import Input from "../Input";
-import SelectCountry from "../SelectCountry";
-import { paymentSchema } from "./schema";
+import Input from "./Input";
+import SelectCountry from "./SelectCountry";
+import { paymentSchema } from "./paymentSchema";
 
 export default function PaymentForm() {
   const [formStage, setFormStage] = useState(0);
