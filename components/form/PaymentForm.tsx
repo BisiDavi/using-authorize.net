@@ -24,11 +24,6 @@ export default function PaymentForm({ numberofOccurence }: Props) {
     },
   });
 
-  console.log("formState", formState);
-  const name = `${formState.data.firstName} ${formState.data.lastName}`;
-
-  console.log("name", name);
-
   return (
     <>
       {!formState.filled ? (
@@ -38,7 +33,7 @@ export default function PaymentForm({ numberofOccurence }: Props) {
           numberofOccurence={numberofOccurence}
         />
       ) : (
-        <CardForm name={name} />
+        <CardForm userDetails={formState.data} />
       )}
     </>
   );

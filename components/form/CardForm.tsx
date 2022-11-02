@@ -1,5 +1,7 @@
 import Cards from "react-credit-cards-2";
 import { useState } from "react";
+
+import { formStateType } from "../../types";
 import "react-credit-cards-2/es/styles-compiled.css";
 
 const formArray = [
@@ -9,10 +11,11 @@ const formArray = [
 ];
 
 interface Props {
-  name?: string;
+  userDetails: formStateType;
 }
 
-export default function CardForm({ name }: Props) {
+export default function CardForm({ userDetails }: Props) {
+  const name = `${userDetails.firstName} ${userDetails.lastName}`;
   const [formState, setFormState] = useState({
     cvc: "",
     expiry: "",
@@ -21,8 +24,6 @@ export default function CardForm({ name }: Props) {
     number: "",
   });
 
-  console.log("formState", formState);
-
   function handleInputFocus(e: any) {
     setFormState({ ...formState, focus: e.target.name });
   }
@@ -30,6 +31,15 @@ export default function CardForm({ name }: Props) {
   function handleInputChange(e: any) {
     const { name, value } = e.target;
     setFormState({ ...formState, [name]: value });
+  }
+
+  function onSubmit(e: any) {
+    e.preventDefault();
+    const data = {
+      ...userDetails,
+      formState,
+    };
+    console.log("data", data);
   }
 
   return (
@@ -41,7 +51,7 @@ export default function CardForm({ name }: Props) {
         name={formState.name}
         number={formState.number}
       />
-      <form>
+      <form onSubmit={onSubmit}>
         <div className="input-group">
           {formArray.map((input, index) => (
             <input
