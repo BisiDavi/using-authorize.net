@@ -17,7 +17,7 @@ export default function CustomerDetailsForm({
   const currentDateInstance = new Date().toISOString().substring(0, 10);
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
-    defaultValues: formState,
+    defaultValues: formState.data,
     mode: "all",
   });
 

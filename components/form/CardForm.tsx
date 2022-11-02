@@ -18,7 +18,7 @@ export default function CardForm({ name }: Props) {
     expiry: "",
     focus: "",
     number: "",
-    name: "",
+    name,
   });
 
   function handleInputFocus(e: any) {
