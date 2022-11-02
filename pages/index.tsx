@@ -45,7 +45,7 @@ const Home: NextPage = () => {
                   layout="responsive"
                 />
                 <h4 className="xl my-4">{item.name}</h4>
-                <button className="">Buy ${formatPrice(item.price)}</button>
+                <button>${formatPrice(item.price)}</button>
               </li>
             ))}
           </ul>
