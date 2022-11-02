@@ -7,6 +7,7 @@ import paymentForm from "../../json/payment-form.json";
 import Input from "./Input";
 import SelectCountry from "./SelectCountry";
 import { paymentSchema } from "./paymentSchema";
+import CardForm from "./CardForm";
 
 export default function PaymentForm() {
   const [formStage, setFormStage] = useState(0);
@@ -38,7 +39,9 @@ export default function PaymentForm() {
                             input={formElement}
                             className={inputClassName}
                           />
-                        ) : null}
+                        ) : (
+                          <CardForm />
+                        )}
                       </>
                     );
                   })}
