@@ -1,7 +1,6 @@
 import Cards from "react-credit-cards-2";
 import { useState } from "react";
-
-import "react-credit-cards/es/styles-compiled.css";
+import "react-credit-cards-2/es/styles-compiled.css";
 
 const formArray = [
   { name: "number", text: "Card Number" },
@@ -15,6 +14,7 @@ export default function CardForm() {
     expiry: "",
     focus: "",
     number: "",
+    name: "",
   });
 
   function handleInputFocus(e: any) {
@@ -35,16 +35,18 @@ export default function CardForm() {
         number={formState.number}
       />
       <form>
-        {formArray.map((input, index) => (
-          <input
-            key={index}
-            type="tel"
-            name={input.name}
-            placeholder={input.text}
-            onChange={handleInputChange}
-            onFocus={handleInputFocus}
-          />
-        ))}
+        <div className="input-group">
+          {formArray.map((input, index) => (
+            <input
+              key={index}
+              type="tel"
+              name={input.name}
+              placeholder={input.text}
+              onChange={handleInputChange}
+              onFocus={handleInputFocus}
+            />
+          ))}
+        </div>
       </form>
     </div>
   );

@@ -12,6 +12,8 @@ import CardForm from "./CardForm";
 export default function PaymentForm() {
   const [formStage, setFormStage] = useState(0);
 
+  console.log("formStage", formStage);
+
   const methods = useForm({
     resolver: yupResolver(paymentSchema),
     mode: "all",
@@ -22,7 +24,7 @@ export default function PaymentForm() {
       <form>
         <h4>Make Payment</h4>
         <Link href="/" passHref>
-          <button>Back</button>
+          <button className="go-back bold">Back</button>
         </Link>
         <div className="form-view my-4">
           {formStage < 2
@@ -40,14 +42,14 @@ export default function PaymentForm() {
                             className={inputClassName}
                           />
                         ) : (
-                          <CardForm />
+                          formStage === 2 && <CardForm />
                         )}
                       </>
                     );
                   })}
                 </div>
               ))
-            : null}
+            : formStage === 2 && <CardForm />}
           <div className="buttonSet">
             {formStage > 0 && (
               <button

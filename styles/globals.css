@@ -62,14 +62,13 @@ ul {
 
 .input-view input {
   width: 95%;
-  background-color: white;
   padding: 5px 10px;
   margin: 5px;
+  height: 32px;
 }
 
 .select-view select {
   width: 95%;
-  background-color: white;
   padding: 5px 10px;
   margin: 5px;
   color: black;
@@ -84,6 +83,7 @@ ul {
   justify-content: space-between;
 }
 
+/* button */
 .buttonSet {
   margin-top: 10px;
   width: 100%;
@@ -111,4 +111,21 @@ ul {
 
 button {
   color: white;
+}
+button.go-back {
+  color: red;
+}
+
+/* cardform */
+#PaymentForm .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.input-group input {
+  margin: 10px 20px;
+  padding: 5px 10px;
+  margin: 5px;
+  height: 32px;
 }
