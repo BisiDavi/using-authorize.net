@@ -19,7 +19,10 @@ type createSubscriptionDataType = {
   amount: string;
 };
 
-export default function createSubscription(data: createSubscriptionDataType) {
+export default function createSubscription(
+  data: createSubscriptionDataType,
+  res: any
+) {
   const merchantAuthenticationType =
     new ApiContracts.MerchantAuthenticationType();
   merchantAuthenticationType.setName(
@@ -131,5 +134,6 @@ export default function createSubscription(data: createSubscriptionDataType) {
       console.log("Null Response.");
     }
     console.log("response", response);
+    res.status(200).send(response);
   });
 }
