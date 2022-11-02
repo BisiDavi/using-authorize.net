@@ -47,7 +47,7 @@
         "name": "country",
         "label": "Country",
         "placeholder": "Please select your country",
-        "type": "select"
+        "type": "country"
       }
     ]
   ],

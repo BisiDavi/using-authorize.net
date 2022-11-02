@@ -53,7 +53,8 @@ ul {
 }
 
 /* form */
-.input-view {
+.input-view,
+.select-view {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -64,6 +65,14 @@ ul {
   background-color: white;
   padding: 5px 10px;
   margin: 5px;
+}
+
+.select-view select {
+  width: 95%;
+  background-color: white;
+  padding: 5px 10px;
+  margin: 5px;
+  color: black;
 }
 
 .input-view input.long {

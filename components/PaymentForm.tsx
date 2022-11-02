@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import paymentForm from "../json/payment-form.json";
 import Input from "./Input";
+import SelectCountry from "./SelectCountry";
 
 export default function PaymentForm() {
   return (
@@ -17,9 +18,11 @@ export default function PaymentForm() {
               const inputClassName = item.length === 2 ? "short" : "long";
               return (
                 <>
-                  {formElement.type !== "select" && (
+                  {formElement.type === "country" ? (
+                    <SelectCountry />
+                  ) : formElement.type !== "select" ? (
                     <Input input={formElement} className={inputClassName} />
-                  )}
+                  ) : null}
                 </>
               );
             })}
